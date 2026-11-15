@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "fpa-variance-ai-calculator",
+    "title": "US FP&A Monthly Variance & Reconciliation ROI Calculator",
+    "niche": "fpa",
+    "default_seats": 8,
+    "default_hours": 14,
+    "default_rate": 65
+  },
+  {
+    "slug": "13-week-cashflow-automation-roi",
+    "title": "13-Week Rolling Cash-Flow Treasury Automation Calculator",
+    "niche": "fpa",
+    "default_seats": 5,
+    "default_hours": 12,
+    "default_rate": 75
+  }
+]
