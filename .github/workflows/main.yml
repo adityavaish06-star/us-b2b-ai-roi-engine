@@ -1,0 +1,84 @@
+name: Immortal Zero-Hands AI Tool & Syndication Engine
+
+on:
+  schedule:
+    - cron: '17 3,9,15,21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-syndicate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Google GenAI SDK
+        run: pip install google-genai
+
+      - name: Auto-Generate New B2B Calculator & RSS Syndication Feed
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python3 - << 'EOF'
+          import os, json, time, datetime
+
+          os.makedirs("data", exist_ok=True)
+          db_path = "data/calculators.json"
+          existing = json.load(open(db_path, encoding="utf-8")) if os.path.exists(db_path) else [
+              {"slug": "fpa-variance-ai-calculator", "title": "US FP&A Monthly Variance & Reconciliation ROI Calculator", "niche": "fpa", "default_seats": 8, "default_hours": 14, "default_rate": 65},
+              {"slug": "13-week-cashflow-automation-roi", "title": "13-Week Rolling Cash-Flow Treasury Automation Calculator", "niche": "fpa", "default_seats": 5, "default_hours": 12, "default_rate": 75}
+          ]
+
+          api_key = os.environ.get("GEMINI_API_KEY", "").strip()
+          if api_key:
+              try:
+                  from google import genai
+                  client = genai.Client(api_key=api_key)
+                  prompt = (
+                      "Generate 1 unique US B2B ROI Calculator JSON object with keys: "
+                      "slug, title, niche (fpa, video, or dev), default_seats (int), default_hours (int), default_rate (int). "
+                      "Return ONLY valid raw JSON without markdown fences."
+                  )
+                  resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
+                  time.sleep(5)
+                  raw = resp.text.strip().strip("`").replace("json\n", "").strip()
+                  new_item = json.loads(raw)
+                  if isinstance(new_item, dict) and "slug" in new_item:
+                      existing.append(new_item)
+              except Exception as err:
+                  print("Generation note:", err)
+
+          with open(db_path, "w", encoding="utf-8") as f:
+              json.dump(existing, f, indent=2)
+
+          site_url = "https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev"
+          rss_items = [
+              f"<item><title>{i.get('title')}</title><link>{site_url}/#{i.get('slug')}</link><description>Interactive US B2B Calculator: {i.get('title')}</description></item>"
+              for i in existing[-15:]
+          ]
+          rss_xml = (
+              "<?xml version='1.0' encoding='UTF-8'?>"
+              f"<rss version='2.0'><channel><title>US B2B AI ROI Decision Engine</title><link>{site_url}</link>"
+              "<description>Automated US B2B ROI Calculators &amp; CFO AI Workflows</description>"
+              + "".join(rss_items) + "</channel></rss>"
+          )
+          with open("rss.xml", "w", encoding="utf-8") as f:
+              f.write(rss_xml)
+          print("Successfully updated calculators.json and rss.xml")
+          EOF
+
+      - name: 60-Day Inactivity Bypass (Immortal Self-Commit Heartbeat)
+        run: |
+          git config user.name "Zero-Hands Autonomous Agent"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit --allow-empty -m "auto-heartbeat: new interactive calculator + RSS sync"
+          git push
