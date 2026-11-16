@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaish AI &amp; Finance Systems — US B2B AI &amp; FP&amp;A ROI Decision Engine</title>
+  <meta name="description" content="Calculate your exact US B2B AI automation savings, 13-week cash-flow efficiency, and verified enterprise AI software ROI.">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "US B2B AI & FP&A ROI Decision Engine",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Interactive B2B SaaS & AI Workflow ROI Calculator for US CFOs, FP&A teams, and SMB founders."
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden bg-emerald-600 text-white px-4 py-3 rounded-xl shadow-2xl border border-emerald-400/30 text-sm font-medium">
+    <span id="toast-msg">Request received!</span>
+  </div>
+
+  <!-- Custom Audit Modal -->
+  <div id="lead-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Free 24-Hr Stack Roadmap</span>
+        <button type="button" id="btn-close-modal" class="text-slate-400 hover:text-white text-sm px-2 py-1 rounded">Close</button>
+      </div>
+      <h3 class="text-lg font-bold text-white mb-1">Get Your Custom US AI &amp; FP&amp;A Stack Audit</h3>
+      <p class="text-xs text-slate-400 mb-4">Enter your work email and monthly ops spend to receive a tailored automation &amp; cost-reduction benchmark.</p>
+      <form id="lead-form" class="space-y-3">
+        <div>
+          <label class="block text-xs text-slate-300 mb-1" for="lead-email">Work Email</label>
+          <input id="lead-email" type="email" required placeholder="cfo@company.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+        </div>
+        <div>
+          <label class="block text-xs text-slate-300 mb-1" for="lead-budget">Monthly Software &amp; Ops Spend</label>
+          <select id="lead-budget" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+            <option value="$2,500 - $10,000/mo">$2,500 - $10,000/mo</option>
+            <option value="$10,000 - $50,000/mo">$10,000 - $50,000/mo</option>
+            <option value="$50,000+/mo">$50,000+/mo</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-slate-300 mb-1" for="lead-goal">Primary Automation Goal</label>
+          <select id="lead-goal" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+            <option value="FP&A & Cash-Flow Automation">FP&amp;A &amp; 13-Week Cash-Flow Automation</option>
+            <option value="AI Video & Content Scaling">AI Video &amp; Enterprise Localization</option>
+            <option value="Developer API & Custom Agent Stack">Developer API &amp; Custom Agent Stack</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-xl text-sm transition">Send My Free Stack Audit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Public Header -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-teal-500 flex items-center justify-center font-bold text-white shadow-lg">V</div>
+        <div>
+          <h1 class="text-sm sm:text-base font-bold text-white tracking-tight">Vaish AI &amp; Finance Systems</h1>
+          <p class="text-xs text-slate-400">US B2B AI Workflow &amp; FP&amp;A ROI Decision Engine</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <button type="button" id="btn-open-lead" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-medium px-3.5 py-2 rounded-lg transition">Free Stack Audit</button>
+        <a href="https://vaish-ai-finance.lemonsqueezy.com/checkout/buy/9da99c5c-ad4e-458d-a65b-483574f3e061" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-lg shadow-indigo-600/25">Get $79 CFO AI Vault</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto w-full px-4 py-8 flex-1 space-y-8">
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-indigo-950/70 via-slate-900 to-slate-900 border border-indigo-500/30 rounded-2xl p-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
+      <div class="max-w-2xl">
+        <span class="text-[11px] font-mono uppercase tracking-wider text-teal-400 block mb-1.5">2026 Enterprise Benchmark Engine</span>
+        <h2 id="hero-calc-title" class="text-2xl sm:text-3xl font-bold text-white leading-tight">US B2B AI Workflow &amp; FP&amp;A Cost-Savings Calculator</h2>
+        <p class="text-sm text-slate-300 mt-2">Model your team's annual manual operational burn, benchmark verified AI automation savings, and deploy ready-to-run CFO reconciliation and cash-flow templates.</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button type="button" data-niche="fpa" class="niche-btn bg-indigo-600 text-white text-xs font-semibold px-3.5 py-2 rounded-lg">Finance &amp; FP&amp;A</button>
+        <button type="button" data-niche="video" class="niche-btn bg-slate-800 text-slate-300 hover:text-white text-xs font-medium px-3.5 py-2 rounded-lg">AI Video &amp; Audio</button>
+        <button type="button" data-niche="dev" class="niche-btn bg-slate-800 text-slate-300 hover:text-white text-xs font-medium px-3.5 py-2 rounded-lg">SaaS &amp; Creator</button>
+      </div>
+    </section>
+
+    <!-- Dynamic Calculator Directory Chips (Loaded from data/calculators.json) -->
+    <section id="dynamic-tools-bar" class="hidden space-y-2">
+      <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Select Benchmark Preset:</span>
+      <div id="calc-presets-list" class="flex flex-wrap gap-2"></div>
+    </section>
+
+    <!-- Main Calculator & Recommendations -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Inputs -->
+      <div class="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h3 class="text-sm font-bold text-white">1. Configure Team Workload</h3>
+          <span id="active-niche-badge" class="text-xs font-mono text-indigo-400">Finance &amp; FP&amp;A</span>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-xs mb-1.5">
+            <label for="calc-team" class="text-slate-300 font-medium">Team Members / Analysts</label>
+            <span id="calc-team-val" class="font-mono font-semibold text-white">8 seats</span>
+          </div>
+          <input id="calc-team" type="range" min="1" max="50" step="1" value="8" class="w-full accent-indigo-500 cursor-pointer">
+        </div>
+
+        <div>
+          <div class="flex justify-between text-xs mb-1.5">
+            <label for="calc-hours" class="text-slate-300 font-medium">Manual Hours Spent / Week per Person</label>
+            <span id="calc-hours-val" class="font-mono font-semibold text-white">14 hrs/wk</span>
+          </div>
+          <input id="calc-hours" type="range" min="2" max="40" step="1" value="14" class="w-full accent-indigo-500 cursor-pointer">
+        </div>
+
+        <div>
+          <div class="flex justify-between text-xs mb-1.5">
+            <label for="calc-rate" class="text-slate-300 font-medium">US Hourly Loaded Cost ($/hr)</label>
+            <span id="calc-rate-val" class="font-mono font-semibold text-white">$65/hr</span>
+          </div>
+          <input id="calc-rate" type="range" min="25" max="150" step="5" value="65" class="w-full accent-indigo-500 cursor-pointer">
+        </div>
+
+        <div class="pt-2 border-t border-slate-800 grid grid-cols-2 gap-3">
+          <div class="bg-slate-950 border border-slate-800/80 rounded-xl p-3.5">
+            <span class="text-[11px] text-slate-400 block">Annual Manual Burn</span>
+            <span id="calc-burn" class="text-lg font-bold font-mono text-rose-400">$378,560</span>
+          </div>
+          <div class="bg-emerald-950/30 border border-emerald-500/30 rounded-xl p-3.5">
+            <span class="text-[11px] text-emerald-300 block">Est. AI Savings (68%)</span>
+            <span id="calc-savings" class="text-lg font-bold font-mono text-emerald-400">$257,421</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-xs font-semibold text-white block">Need a Custom AI Roadmap?</span>
+            <span class="text-[11px] text-slate-400">Free 24-hour stack audit for your team</span>
+          </div>
+          <button type="button" id="btn-inline-audit" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap transition">Request Free Audit</button>
+        </div>
+      </div>
+
+      <!-- Recommended Stack + $79 Vault Offer -->
+      <div class="lg:col-span-7 space-y-5">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div class="mb-4">
+            <span class="text-[11px] font-mono uppercase text-emerald-400 block">Verified 2026 Enterprise Tools</span>
+            <h3 class="text-base font-bold text-white">Recommended AI Stack for Your Workload</h3>
+          </div>
+          <div id="recommended-tools-list" class="space-y-3"></div>
+        </div>
+
+        <!-- $79 Digital Vault Dual-Checkout Card -->
+        <div class="bg-gradient-to-br from-slate-900 via-indigo-950/50 to-slate-900 border border-indigo-500/40 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <span class="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30 inline-block">Instant Digital Download · $79</span>
+            <h4 class="text-lg font-bold text-white">The 2026 CFO &amp; Business AI Automation Vault</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">Includes the 5-Module Executive Playbook (PDF) + Unlocked 3-Tab Excel Automation Suite (27-Point Reconciliation Log, 13-Week Rolling Cash-Flow Model &amp; Variance Prompts).</p>
+          </div>
+          <div class="flex flex-col sm:items-end gap-2 w-full sm:w-auto shrink-0">
+            <a href="https://vaish-ai-finance.lemonsqueezy.com/checkout/buy/9da99c5c-ad4e-458d-a65b-483574f3e061" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-5 py-3 rounded-xl transition shadow-lg shadow-indigo-600/25">Buy Now — $79 (Lemon Squeezy)</a>
+            <a href="https://adityakasaudhan.gumroad.com/l/tmvrfh?wanted=true" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-medium px-4 py-2 rounded-lg transition">Alternative Checkout (Gumroad)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Vaish AI &amp; Finance Systems · Support: adityakasaudhan06@gmail.com</p>
+  </footer>
+
+  <script>
+    const TOOLS = [
+      { name: 'TradingView Pro', niche: 'fpa', url: 'https://www.tradingview.com/pricing/?share_your_love=Vaish_aditya06', pitch: 'Automated multi-timeframe financial charting, macro indicators & real-time alerts.' },
+      { name: 'AI/ML API Enterprise', niche: 'fpa', url: 'https://aimlapi.com/', pitch: 'Unified API for 200+ AI models to automate 27-point Excel & ERP reconciliations.' },
+      { name: 'Oakgen AI Workflows', niche: 'fpa', url: 'https://oakgen.ai/', pitch: 'Convert quarterly financial PDFs and variance tables into executive briefings.' },
+      { name: 'Synthesia AI Studio', niche: 'video', url: 'https://www.synthesia.io/?via=aditya-vaish', pitch: 'Studio-quality enterprise training & onboarding videos in 140+ languages.' },
+      { name: 'HeyGen Creator Pro', niche: 'video', url: 'https://www.heygen.com/', pitch: 'Clone voice and localize US marketing reels at scale in 1 click.' },
+      { name: 'ElevenLabs Audio AI', niche: 'video', url: 'https://elevenlabs.io/', pitch: 'Human-grade narration and multi-speaker dubbing for corporate media.' },
+      { name: 'Kajabi Creator OS', niche: 'dev', url: 'https://kajabi.com/', pitch: 'All-in-one B2B cohort, digital product, and recurring membership platform.' },
+      { name: 'Murf AI Studio', niche: 'dev', url: 'https://murf.ai/', pitch: 'Enterprise voiceover sync for SaaS product demos and customer onboarding.' }
+    ];
+
+    let activeNiche = 'fpa';
+    const fmtUSD = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      t.classList.remove('hidden');
+      setTimeout(() => t.classList.add('hidden'), 3000);
+    }
+
+    function renderCalculator() {
+      const team = parseInt(document.getElementById('calc-team').value, 10) || 8;
+      const hours = parseInt(document.getElementById('calc-hours').value, 10) || 14;
+      const rate = parseInt(document.getElementById('calc-rate').value, 10) || 65;
+
+      document.getElementById('calc-team-val').textContent = `${team} seats`;
+      document.getElementById('calc-hours-val').textContent = `${hours} hrs/wk`;
+      document.getElementById('calc-rate-val').textContent = `$${rate}/hr`;
+
+      const burn = team * hours * rate * 52;
+      const savings = Math.round(burn * 0.68);
+      document.getElementById('calc-burn').textContent = fmtUSD.format(burn);
+      document.getElementById('calc-savings').textContent = fmtUSD.format(savings);
+
+      const labels = { fpa: 'Finance & FP&A', video: 'AI Video & Audio', dev: 'SaaS & Creator' };
+      document.getElementById('active-niche-badge').textContent = labels[activeNiche] || 'Finance & FP&A';
+
+      const listEl = document.getElementById('recommended-tools-list');
+      listEl.innerHTML = '';
+      const filtered = TOOLS.filter(t => t.niche === activeNiche);
+      filtered.forEach(item => {
+        const monthlySavings = Math.round(savings / (filtered.length * 12));
+        const div = document.createElement('div');
+        div.className = 'bg-slate-950 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3';
+        div.innerHTML = `
+          <div class="space-y-1">
+            <span class="text-sm font-bold text-white block">${item.name}</span>
+            <p class="text-xs text-slate-400">${item.pitch} Est. efficiency gain: ~${fmtUSD.format(monthlySavings)}/mo.</p>
+          </div>
+          <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 bg-indigo-600/20 hover:bg-indigo-600 border border-indigo-500/40 text-indigo-300 hover:text-white text-xs font-semibold px-3.5 py-2 rounded-lg transition">Explore Tool →</a>
+        `;
+        listEl.appendChild(div);
+      });
+    }
+
+    async function loadDynamicPresets() {
+      try {
+        const res = await fetch('/data/calculators.json');
+        if (!res.ok) return;
+        const items = await res.json();
+        if (!Array.isArray(items) || items.length === 0) return;
+
+        const bar = document.getElementById('dynamic-tools-bar');
+        const list = document.getElementById('calc-presets-list');
+        bar.classList.remove('hidden');
+        list.innerHTML = '';
+
+        items.slice(-8).forEach(item => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs px-3 py-1.5 rounded-lg transition';
+          btn.textContent = item.title;
+          btn.addEventListener('click', () => {
+            document.getElementById('hero-calc-title').textContent = item.title;
+            if (item.default_seats) document.getElementById('calc-team').value = item.default_seats;
+            if (item.default_hours) document.getElementById('calc-hours').value = item.default_hours;
+            if (item.default_rate) document.getElementById('calc-rate').value = item.default_rate;
+            if (item.niche) activeNiche = item.niche;
+            renderCalculator();
+          });
+          list.appendChild(btn);
+        });
+      } catch (e) {}
+    }
+
+    document.querySelectorAll('.niche-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.niche-btn').forEach(b => {
+          b.classList.remove('bg-indigo-600', 'text-white', 'font-semibold');
+          b.classList.add('bg-slate-800', 'text-slate-300', 'font-medium');
+        });
+        btn.classList.add('bg-indigo-600', 'text-white', 'font-semibold');
+        btn.classList.remove('bg-slate-800', 'text-slate-300', 'font-medium');
+        activeNiche = btn.getAttribute('data-niche');
+        renderCalculator();
+      });
+    });
+
+    ['calc-team', 'calc-hours', 'calc-rate'].forEach(id => {
+      document.getElementById(id).addEventListener('input', renderCalculator);
+    });
+
+    const modal = document.getElementById('lead-modal');
+    document.getElementById('btn-open-lead').addEventListener('click', () => modal.classList.remove('hidden'));
+    document.getElementById('btn-inline-audit').addEventListener('click', () => modal.classList.remove('hidden'));
+    document.getElementById('btn-close-modal').addEventListener('click', () => modal.classList.add('hidden'));
+
+    document.getElementById('lead-form').addEventListener('submit', e => {
+      e.preventDefault();
+      modal.classList.add('hidden');
+      document.getElementById('lead-email').value = '';
+      showToast('Audit request received! Check your inbox shortly.');
+    });
+
+    renderCalculator();
+    loadDynamicPresets();
+  </script>
+</body>
+</html>
