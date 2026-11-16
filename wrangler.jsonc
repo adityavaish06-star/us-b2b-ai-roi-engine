@@ -1,8 +1,13 @@
 {
   "name": "us-b2b-ai-roi-engine",
-  "compatibility_date": "2026-11-01",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-16",
   "workers_dev": true,
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+  "triggers": {
+    "crons": ["17 3,9,15,21 * * *"]
   }
 }
