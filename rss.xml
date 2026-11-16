@@ -1,1 +1,28 @@
-<?xml version='1.0' encoding='UTF-8'?><rss version='2.0'><channel><title>US B2B AI ROI Decision Engine</title><link>https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev</link><description>Automated US B2B ROI Calculators &amp; CFO AI Workflows</description><item><title>US FP&A Monthly Variance & Reconciliation ROI Calculator</title><link>https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/#fpa-variance-ai-calculator</link><description>Interactive US B2B Calculator: US FP&A Monthly Variance & Reconciliation ROI Calculator</description></item><item><title>13-Week Rolling Cash-Flow Treasury Automation Calculator</title><link>https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/#13-week-cashflow-automation-roi</link><description>Interactive US B2B Calculator: 13-Week Rolling Cash-Flow Treasury Automation Calculator</description></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vaish AI &amp; Finance Systems — US B2B AI ROI Engine</title>
+    <link>https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/</link>
+    <atom:link href="https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Interactive US B2B AI Workflow &amp; FP&amp;A Cost-Savings Calculators and CFO Automation Toolkits.</description>
+    <language>en-us</language>
+    <item>
+      <title>US FP&amp;A Monthly Variance &amp; Reconciliation AI ROI Calculator (2026)</title>
+      <link>https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/#fpa-variance-ai-calculator</link>
+      <guid isPermaLink="false">fpa-variance-ai-calculator-2026</guid>
+      <pubDate>Mon, 16 Nov 2026 12:00:00 GMT</pubDate>
+      <description>Calculate your finance team's annual manual reconciliation burn and deploy the 27-Point AI Audit Matrix.</description>
+      <enclosure url="https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/pin-cover.jpg" length="95000" type="image/jpeg" />
+      <media:content url="https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/pin-cover.jpg" medium="image" type="image/jpeg" width="1000" height="1500" />
+    </item>
+    <item>
+      <title>13-Week Rolling Cash-Flow &amp; Treasury AI Automation Calculator</title>
+      <link>https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/#13-week-cashflow-automation-roi</link>
+      <guid isPermaLink="false">13-week-cashflow-automation-roi-2026</guid>
+      <pubDate>Mon, 16 Nov 2026 12:30:00 GMT</pubDate>
+      <description>Model weekly liquidity buffers, working capital timing, and automated CFO cash-flow scenarios.</description>
+      <enclosure url="https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/pin-cover.jpg" length="95000" type="image/jpeg" />
+      <media:content url="https://us-b2b-ai-roi-engine.adityakasaudhan06.workers.dev/pin-cover.jpg" medium="image" type="image/jpeg" width="1000" height="1500" />
+    </item>
+  </channel>
+</rss>
