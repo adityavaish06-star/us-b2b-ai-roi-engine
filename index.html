@@ -209,8 +209,8 @@
               <p class="text-xs text-slate-300">27-Point Excel Reconciliation Prompts, 13-Week Cash-Flow Forecaster, SaaS Audit Matrix &amp; 50 Ready-to-Run Gemini/NotebookLM Workflows.</p>
             </div>
             <div class="flex flex-col sm:items-end gap-2 w-full sm:w-auto shrink-0">
-              <a id="cta-lemonsqueezy" href="https://app.lemonsqueezy.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition shadow-lg shadow-indigo-600/25">Buy via Lemon Squeezy ($79)</a>
-              <a id="cta-gumroad" href="https://gumroad.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-[11px] font-medium px-3 py-1.5 rounded-lg transition">Instant Backup Checkout (Gumroad)</a>
+              <a id="cta-lemonsqueezy" href="https://adityakasaudhan.gumroad.com/l/tmvrfh?wanted=true" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition shadow-lg shadow-indigo-600/25">Instant 1-Click Checkout ($79)</a>
+              <a id="cta-gumroad" href="https://adityakasaudhan.gumroad.com/l/tmvrfh" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-[11px] font-medium px-3 py-1.5 rounded-lg transition">View Full Vault Product Page ($79)</a>
             </div>
           </div>
         </div>
@@ -231,11 +231,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div class="bg-slate-950 border border-slate-800 rounded-xl p-4">
             <label class="block text-xs font-semibold text-indigo-400 mb-1" for="inp-ls-url">Primary Checkout: Lemon Squeezy URL (5% + $0.50 fee, MoR tax handled)</label>
-            <input id="inp-ls-url" type="url" value="https://app.lemonsqueezy.com" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white font-mono">
+            <input id="inp-ls-url" type="url" value="https://adityakasaudhan.gumroad.com/l/tmvrfh?wanted=true" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white font-mono">
           </div>
           <div class="bg-slate-950 border border-slate-800 rounded-xl p-4">
             <label class="block text-xs font-semibold text-amber-400 mb-1" for="inp-gr-url">Failover Checkout: Gumroad URL (Weekly Payout, $0 minimum hold)</label>
-            <input id="inp-gr-url" type="url" value="https://gumroad.com" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white font-mono">
+            <input id="inp-gr-url" type="url" value="https://adityakasaudhan.gumroad.com/l/tmvrfh" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white font-mono">
           </div>
         </div>
 
@@ -402,8 +402,8 @@
     // 1. Verified State & Data Inventory
     const DEFAULT_STATE = {
       activeNiche: 'fpa',
-      lemonSqueezyUrl: 'https://app.lemonsqueezy.com',
-      gumroadUrl: 'https://gumroad.com',
+      lemonSqueezyUrl: 'https://adityakasaudhan.gumroad.com/l/tmvrfh?wanted=true',
+      gumroadUrl: 'https://adityakasaudhan.gumroad.com/l/tmvrfh',
       leads: [],
       affiliates: [
         { id: 'tradingview', name: 'TradingView Pro', niche: 'fpa', category: 'Financial & Market Analytics', rate: '30% recurring', avgComm: 18, cookie: '90+ days', url: 'https://www.tradingview.com/?aff_id=YOUR_ID', pitch: 'Automated multi-timeframe financial charting, macro indicators & alerts.' },
@@ -844,8 +844,8 @@ function doPost(e) {
     });
 
     document.getElementById('btn-save-links').addEventListener('click', () => {
-      appState.lemonSqueezyUrl = document.getElementById('inp-ls-url').value.trim() || 'https://app.lemonsqueezy.com';
-      appState.gumroadUrl = document.getElementById('inp-gr-url').value.trim() || 'https://gumroad.com';
+      appState.lemonSqueezyUrl = document.getElementById('inp-ls-url').value.trim() || 'https://adityakasaudhan.gumroad.com/l/tmvrfh?wanted=true';
+      appState.gumroadUrl = document.getElementById('inp-gr-url').value.trim() || 'https://adityakasaudhan.gumroad.com/l/tmvrfh';
       document.querySelectorAll('.aff-url-inp').forEach(inp => {
         const idx = parseInt(inp.getAttribute('data-aff-idx'), 10);
         if (appState.affiliates[idx]) {
